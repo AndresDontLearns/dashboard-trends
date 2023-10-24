@@ -13,5 +13,16 @@ Este es un reporte simple pero muy útil al estar disponible 24/7 con informaci�
 
 [aqui la imagen]
 
+Para importar los datos al reporte se usó la conexión desde BigQuery. Al ingresar a esta opción de conexión es posible encontrar la tabla desde el conjunto de datos públicos, pero en este caso se importo con una consulta personalizada. La consulta realizada en BigQuery es la siguiente
 
+```sql
+SELECT
+  refresh_date as Dia,
+  country_name as Pais,
+  term as Tema,
+  rank as Ranknig,
+  score as Puntaje
+FROM bigquery-public-data.google_trends.international_top_terms
+where
+  country_name = 'Chile' and rank <= 5
   
